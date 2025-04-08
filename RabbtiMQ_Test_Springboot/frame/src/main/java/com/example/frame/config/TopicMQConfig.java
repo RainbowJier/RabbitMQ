@@ -75,47 +75,4 @@ public class TopicMQConfig {
                 .with(registerSmsBindingKey);
     }
 
-    //===============traffic reduction delay queue===================================
-
-
-    /**
-     * delayer time 1 minute, unit: milliseconds
-     */
-//    private Integer ttl = 1000 * 60 * 1;
-//
-    // delay exchange --> delay queue --> release.queue
-//    private String trafficReleaseDelayRoutingKey = "traffic.release.delay.routing.key";
-//    private String trafficReleaseDelayQueue = "traffic.release.delay.queue";
-//
-//    @Bean
-//    public Queue trafficReleaseDelayQueue() {
-//        Map<String, Object> args = new HashMap<>(3);
-//        args.put("x-message-ttl", ttl);
-//        args.put("x-dead-letter-exchange", trafficEventExchange);
-//        args.put("x-dead-letter-routing-key", trafficReleaseRoutingKey);
-//
-//        return new Queue(trafficReleaseDelayQueue, true, false, false, args);
-//    }
-//
-//    @Bean
-//    public Binding trafficReleaseDelayBinding() {
-//        return BindingBuilder.bind(trafficReleaseDelayQueue()).to(trafficEventExchange())
-//                .with(trafficReleaseDelayRoutingKey);
-//    }
-//
-//    private String trafficReleaseRoutingKey = "traffic.release.routing.key";
-//    private String trafficReleaseQueue = "traffic.release.queue";
-//
-//    @Bean
-//    public Queue trafficReleaseQueue() {
-//        return new Queue(trafficReleaseQueue, true, false, false);
-//    }
-//
-//    @Bean
-//    public Binding trafficReleaseBinding() {
-//        return BindingBuilder.bind(trafficReleaseQueue()).to(trafficEventExchange())
-//                .with(trafficReleaseRoutingKey);
-//    }
-
-
 }
