@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 public class EventMessage implements Serializable {
     /**
-     * 消息队列id
+     * 消息队列 id
      */
     private String messageId;
 
@@ -30,6 +30,11 @@ public class EventMessage implements Serializable {
      * 事件类型
      */
     private String eventMessageType;
+
+    /**
+     * 业务 id
+     */
+    private String bizId;
 
     /**
      * 账号
