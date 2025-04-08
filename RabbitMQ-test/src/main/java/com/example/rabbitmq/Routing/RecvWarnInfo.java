@@ -1,6 +1,6 @@
 package com.example.rabbitmq.Routing;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -13,22 +13,24 @@ import java.nio.charset.StandardCharsets;
  * @Version: 1.0
  */
 
-public class RecvError {
+public class RecvWarnInfo {
 
-    private final static String QUEUE_NAME = "error_queue";
-    private final static String ROUTING_KEY = "error";
+    private final static String QUEUE_NAME = "other_queue";
+    private final static String[] ROUTING_KEY_LIST = {"warn", "info"};
     private final static String EXCHANGE_NAME = "direct_exchange";
 
     public static void main(String[] argv) throws Exception {
         // connect to RabbitMQ server.
-        Connection connection = ConnectionUtil.getConnection();
+        Connection connection = ConnectionConfig.getConnection();
 
         // create a channel.
         Channel channel = connection.createChannel();
 
         // declare a queue and bind it to an exchange.
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
+        for(String routingKey : ROUTING_KEY_LIST){
+            channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, routingKey);
+        }
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 

@@ -1,4 +1,4 @@
-package com.example.rabbitmq.util;
+package com.example.rabbitmq.config;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -8,7 +8,7 @@ import com.rabbitmq.client.ConnectionFactory;
  * @Author： RainbowJier
  * @Data： 2024/11/10 13:55
  */
-public class ConnectionUtil {
+public class ConnectionConfig {
     public static Connection getConnection() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("123.249.98.26");

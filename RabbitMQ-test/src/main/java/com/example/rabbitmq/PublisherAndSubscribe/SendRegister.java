@@ -1,6 +1,6 @@
 package com.example.rabbitmq.PublisherAndSubscribe;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -16,11 +16,11 @@ import java.nio.charset.StandardCharsets;
  */
 @Slf4j
 public class SendRegister {
-    private final static String EXCHANGE_NAME = "fanout_exchange";
+    private final static String EXCHANGE_NAME = RabbitMQConfig.EXCHANGE_NAME;
 
     public static void main(String[] argv) throws Exception {
         // connect to RabbitMQ server.
-        Connection connection = ConnectionUtil.getConnection();
+        Connection connection = ConnectionConfig.getConnection();
 
         // create a channel.
         Channel channel = connection.createChannel();

@@ -1,6 +1,6 @@
-package com.example.rabbitmq.Topic;
+package com.example.rabbitmq.Routing;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -16,20 +16,20 @@ import java.nio.charset.StandardCharsets;
  */
 @Slf4j
 public class SendLog {
-    private final static String EXCHANGE_NAME = "topic_exchange";
+    private final static String EXCHANGE_NAME = "direct_exchange";
 
     public static void main(String[] argv) throws Exception {
-        String[] routingKeys = {"log.info.register","log.info.login", "log.error", "log.warn.login"};
+        String[] routingKeys = {"info", "error", "warn"};
         for (String routingKey : routingKeys) {
 
             // connect to RabbitMQ server.
-            Connection connection = ConnectionUtil.getConnection();
+            Connection connection = ConnectionConfig.getConnection();
 
             // create a channel.
             Channel channel = connection.createChannel();
 
             // declare an fanout exchange.
-            channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
+            channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
 
             try {
 

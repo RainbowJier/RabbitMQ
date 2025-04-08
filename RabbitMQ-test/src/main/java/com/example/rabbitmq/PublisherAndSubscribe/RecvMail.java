@@ -1,6 +1,6 @@
-package com.example.rabbitmq.Routing;
+package com.example.rabbitmq.PublisherAndSubscribe;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -13,24 +13,21 @@ import java.nio.charset.StandardCharsets;
  * @Version: 1.0
  */
 
-public class RecvWarnInfo {
+public class RecvMail {
 
-    private final static String QUEUE_NAME = "other_queue";
-    private final static String[] ROUTING_KEY_LIST = {"warn", "info"};
-    private final static String EXCHANGE_NAME = "direct_exchange";
+    private final static String QUEUE_NAME = RabbitMQConfig.MAIL_QUEUE_NAME;
+    private final static String EXCHANGE_NAME = RabbitMQConfig.EXCHANGE_NAME;
 
     public static void main(String[] argv) throws Exception {
         // connect to RabbitMQ server.
-        Connection connection = ConnectionUtil.getConnection();
+        Connection connection = ConnectionConfig.getConnection();
 
         // create a channel.
         Channel channel = connection.createChannel();
 
-        // declare a queue and bind it to an exchange.
+        // declare a queue and bind it to the specified exchange.
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        for(String routingKey : ROUTING_KEY_LIST){
-            channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, routingKey);
-        }
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "");
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
@@ -43,7 +40,7 @@ public class RecvWarnInfo {
 
                 // body of the message.
                 String msg = new String(body, StandardCharsets.UTF_8);
-                System.out.println(" [x] received : " + msg + "!");
+                System.out.println(" [Mail Server] received : " + msg + "!");
 
                 // respond ack to RabbitMQ server.
                 channel.basicAck(deliveryTag, false);

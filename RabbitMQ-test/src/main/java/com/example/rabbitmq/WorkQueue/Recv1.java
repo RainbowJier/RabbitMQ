@@ -1,34 +1,30 @@
-package com.example.rabbitmq.Topic;
+package com.example.rabbitmq.WorkQueue;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @Author: RainbowJier
- * @Description: 👺🐉😎use symbol #
- * @Date: 2024/11/11 15:19
- * @Version: 1.0
+ * @Description：Consumer1
+ * @Author： RainbowJier
+ * @Data： 2024/11/10 13:53
  */
 
-public class Recv_mul {
-
-    private final static String QUEUE_NAME = "#_queue";
-    private final static String ROUTING_KEY = "log.#";
-    private final static String EXCHANGE_NAME = "topic_exchange";
+public class Recv1 {
+    private final static String QUEUE_NAME = "hello";
 
     public static void main(String[] argv) throws Exception {
         // connect to RabbitMQ server.
-        Connection connection = ConnectionUtil.getConnection();
+        Connection connection = ConnectionConfig.getConnection();
 
         // create a channel.
         Channel channel = connection.createChannel();
 
-        // declare a queue and bind it to an exchange.
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
+        int prefetchCount = 1;
+        channel.basicQos(prefetchCount);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
@@ -42,6 +38,13 @@ public class Recv_mul {
                 // body of the message.
                 String msg = new String(body, StandardCharsets.UTF_8);
                 System.out.println(" [x] received : " + msg + "!");
+
+                // simulate processing time.
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
                 // respond ack to RabbitMQ server.
                 channel.basicAck(deliveryTag, false);

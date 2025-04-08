@@ -1,6 +1,6 @@
 package com.example.rabbitmq.Topic;
 
-import com.example.rabbitmq.util.ConnectionUtil;
+import com.example.rabbitmq.config.ConnectionConfig;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -8,20 +8,20 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @Author: RainbowJier
- * @Description: 👺🐉😎use symbol *
+ * @Description: 👺🐉😎
  * @Date: 2024/11/11 15:19
  * @Version: 1.0
  */
 
-public class Recv_ {
+public class RecvWarn {
 
-    private final static String QUEUE_NAME = "*_queue";
-    private final static String ROUTING_KEY = "log.*";
+    private final static String QUEUE_NAME = "warn_queue";
+    private final static String ROUTING_KEY = "log.warn.login";
     private final static String EXCHANGE_NAME = "topic_exchange";
 
     public static void main(String[] argv) throws Exception {
         // connect to RabbitMQ server.
-        Connection connection = ConnectionUtil.getConnection();
+        Connection connection = ConnectionConfig.getConnection();
 
         // create a channel.
         Channel channel = connection.createChannel();
