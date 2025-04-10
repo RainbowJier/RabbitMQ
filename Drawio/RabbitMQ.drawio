@@ -1021,7 +1021,7 @@
         <mxCell id="mmg2udpMuIaUG3WYmo8M-8" value="RabbitMQ实现|&lt;br&gt;延迟队列&lt;br&gt;订单超时取消" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#E1D5E7;" vertex="1" parent="1">
           <mxGeometry x="3830" y="-20.32" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="mmg2udpMuIaUG3WYmo8M-10" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D4E1F5;" vertex="1" parent="1">
+        <mxCell id="mmg2udpMuIaUG3WYmo8M-10" value="DB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#D4E1F5;" vertex="1" parent="1">
           <mxGeometry x="4110" y="237.81" width="60" height="65" as="geometry" />
         </mxCell>
         <mxCell id="mmg2udpMuIaUG3WYmo8M-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mmg2udpMuIaUG3WYmo8M-17" target="mmg2udpMuIaUG3WYmo8M-6">
