@@ -1052,11 +1052,12 @@
         <mxCell id="mmg2udpMuIaUG3WYmo8M-25" value="查询订单状态" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="4190" y="71.88" width="80" height="39.37" as="geometry" />
         </mxCell>
-        <mxCell id="mmg2udpMuIaUG3WYmo8M-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mmg2udpMuIaUG3WYmo8M-27" target="mmg2udpMuIaUG3WYmo8M-10">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="mmg2udpMuIaUG3WYmo8M-30" value="8.订单未支付，关闭顶动感" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mmg2udpMuIaUG3WYmo8M-27" target="mmg2udpMuIaUG3WYmo8M-10">
+          <mxGeometry x="-0.5238" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="4230" y="270" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="mmg2udpMuIaUG3WYmo8M-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mmg2udpMuIaUG3WYmo8M-27" target="mmg2udpMuIaUG3WYmo8M-17">
