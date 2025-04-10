@@ -1,6 +1,6 @@
 package com.example.frame.controller;
 
-import com.example.frame.annotation.Systemlog;
+import com.example.frame.aop.annotation.SysLogAnno;
 import com.example.frame.util.CheckUtil;
 import com.example.frame.util.JsonData;
 import com.example.frame.controller.request.MailRequest;
@@ -24,7 +24,7 @@ public class RegisterController {
 
     @PostMapping("Mail")
     @ApiOperation(value = "发送邮箱验证码")
-    @Systemlog(description = "发送邮箱验证码")
+    @SysLogAnno(description = "发送邮箱验证码")
     public JsonData sendEmail(@RequestBody MailRequest mailRequest) {
         boolean isEmail = CheckUtil.isEmail(mailRequest.getEmail());
         if(!isEmail){
@@ -36,7 +36,7 @@ public class RegisterController {
 
     @PostMapping("Sms")
     @ApiOperation(value = "发送手机验证码")
-    @Systemlog(description = "发送手机验证码")
+    @SysLogAnno(description = "发送手机验证码")
     public JsonData sendSms(@RequestBody PhoneRequest phoneRequest) {
         boolean isPhone = CheckUtil.isPhone(phoneRequest.getPhone());
         if(!isPhone){

@@ -1,4 +1,5 @@
-package com.example.frame.annotation;
+package com.example.frame.aop.annotation;
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,6 +14,10 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
-public @interface Systemlog {
+public @interface SysLogAnno {
+
+    /**
+     * 操作描述
+     */
     String description();
 }

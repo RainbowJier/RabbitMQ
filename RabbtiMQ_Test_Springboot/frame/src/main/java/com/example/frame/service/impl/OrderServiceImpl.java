@@ -35,8 +35,8 @@ public class OrderServiceImpl implements OrderService {
 
         // 发送消息
         rabbitTemplate.convertAndSend(
-                orderMQConfig.getOrderDelayEventExchange(),
-                orderMQConfig.getOrderDelayRoutingKey(),
+                orderMQConfig.getOrderCloseEventExchange(),
+                orderMQConfig.getOrderDelayBindingKey(),
                 orderMessage);
 
         return JsonData.buildSuccess();

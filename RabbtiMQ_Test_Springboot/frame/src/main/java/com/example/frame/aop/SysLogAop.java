@@ -1,7 +1,7 @@
-package com.example.frame.aspect;
+package com.example.frame.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.example.frame.annotation.Systemlog;
+import com.example.frame.aop.annotation.SysLogAnno;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,15 +13,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 
 @Component
 @Aspect
 @Slf4j
-public class LogAspect {
+public class SysLogAop {
     /**
-     * 设置切入点
+     * 设置切入点d的注解
      */
-    @Pointcut("@annotation(com.example.frame.annotation.Systemlog)")
+    @Pointcut("@annotation(com.example.frame.aop.annotation.SysLogAnno)")
     public void pt() {
 
     }
@@ -37,27 +38,30 @@ public class LogAspect {
     public Object printLog(ProceedingJoinPoint joinPoint) throws Throwable {
         Object ret;
         try {
-            handleBefore(joinPoint);
+            // 获取当前请求的属性
+            ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            HttpServletRequest request = requestAttributes.getRequest();
 
-            //这是目标方法执行完成，上一行是目标方法未执行，下一行是目标方法已经执行
-            ret = joinPoint.proceed();
+            // 获取注解对象
+            SysLogAnno systemlog = getSystemlog(joinPoint);
 
-            handleAfter(ret);
+            handleBefore(request, joinPoint, systemlog);
+
+            ret = joinPoint.proceed(); // 执行目标方法
+
+            handleAfter(ret, joinPoint, systemlog, request);
+
         } finally {
-            log.info("=======================end=======================" + System.lineSeparator());
+            log.info("=======================End=======================" + System.lineSeparator());
         }
-
         return ret;
     }
 
-    private void handleBefore(ProceedingJoinPoint joinPoint) {
-        // 获取当前请求的属性
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = requestAttributes.getRequest();
 
-        // 获取被增强方法的注解对象
-        Systemlog systemlog = getSystemlog(joinPoint);
-
+    /**
+     * 处理请求前，打印日志信息
+     */
+    private void handleBefore(HttpServletRequest request, ProceedingJoinPoint joinPoint, SysLogAnno systemlog) {
         log.info("======================Start======================");
         log.info("访问IP    : {}", request.getRemoteHost());
         log.info("请求URL   : {}", request.getRequestURL());
@@ -67,16 +71,17 @@ public class LogAspect {
         log.info("传入参数   : {}", JSON.toJSONString(joinPoint.getArgs()));
     }
 
-    private void handleAfter(Object ret) {
+
+    private void handleAfter(Object ret, ProceedingJoinPoint joinPoint, SysLogAnno systemlog, HttpServletRequest request) {
         log.info("返回参数   : {}", JSON.toJSONString(ret));
     }
 
     /**
      * 获取注解对象
      */
-    private Systemlog getSystemlog(ProceedingJoinPoint joinPoint) {
+    private SysLogAnno getSystemlog(ProceedingJoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        return methodSignature.getMethod().getAnnotation(Systemlog.class);
+        return methodSignature.getMethod().getAnnotation(SysLogAnno.class);
     }
 
 }

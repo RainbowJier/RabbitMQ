@@ -20,15 +20,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RabbitListener(queuesToDeclare = {
-        @Queue("delay.queue"),
-        @Queue("release.queue")
+        @Queue("order.release.queue")
 })
 public class OrderMQListener {
+
     @Autowired
     private OrderService orderService;
 
     @RabbitHandler
-    public void emailHandler(EventMessage eventMessage, Message message, Channel channel) {
+    public void orderHandler(EventMessage eventMessage, Message message, Channel channel) {
         log.info("==========【延迟队列监听器】-Start==========");
 
         try {
