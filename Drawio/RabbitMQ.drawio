@@ -4,6 +4,9 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="LikposSiYaWZYpo1-LhX-28" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D4E1F5;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="920" y="1880" width="400" height="200" as="geometry" />
+        </mxCell>
         <mxCell id="EkjU3QVDfiA8pV-95J5n-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E8D4;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="1400" y="1880" width="400" height="200" as="geometry" />
         </mxCell>
@@ -1163,35 +1166,20 @@
         <mxCell id="LikposSiYaWZYpo1-LhX-26" value="点击跳转" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="920" y="1784" width="70" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="LikposSiYaWZYpo1-LhX-28" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D4E1F5;dashed=1;" parent="1" vertex="1">
-          <mxGeometry x="920" y="1880" width="400" height="200" as="geometry" />
-        </mxCell>
         <mxCell id="LikposSiYaWZYpo1-LhX-29" value="首页&lt;br&gt;（未登录）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="1240" y="1908" width="70" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="LikposSiYaWZYpo1-LhX-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="LikposSiYaWZYpo1-LhX-31" target="LikposSiYaWZYpo1-LhX-33" edge="1">
+        <mxCell id="EkjU3QVDfiA8pV-95J5n-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="LikposSiYaWZYpo1-LhX-31" target="EkjU3QVDfiA8pV-95J5n-28">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="LikposSiYaWZYpo1-LhX-31" value="接收用户&lt;br&gt;username、password、orgId" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="1021.25" y="1910" width="177.5" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LikposSiYaWZYpo1-LhX-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="LikposSiYaWZYpo1-LhX-33" target="LikposSiYaWZYpo1-LhX-35" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="LikposSiYaWZYpo1-LhX-33" value="特力惠验证" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="1075" y="1964" width="70" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="EkjU3QVDfiA8pV-95J5n-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="LikposSiYaWZYpo1-LhX-35" target="LikposSiYaWZYpo1-LhX-38">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="LikposSiYaWZYpo1-LhX-35" value="生成session&lt;br&gt;重定向" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="1075" y="2020" width="70" height="32" as="geometry" />
-        </mxCell>
         <mxCell id="LikposSiYaWZYpo1-LhX-37" value="旧平台" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="910" y="1850" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LikposSiYaWZYpo1-LhX-38" value="首页&lt;br&gt;（已经登录）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="1240" y="2020" width="70" height="32" as="geometry" />
+          <mxGeometry x="1240" y="2031" width="70" height="32" as="geometry" />
         </mxCell>
         <mxCell id="EkjU3QVDfiA8pV-95J5n-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D4E1F5;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="1400" y="1760" width="400" height="80" as="geometry" />
@@ -1238,6 +1226,19 @@
         </mxCell>
         <mxCell id="EkjU3QVDfiA8pV-95J5n-20" value="特力惠&lt;br&gt;验证" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="1560" y="1964" width="70" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="EkjU3QVDfiA8pV-95J5n-30" value="&lt;b&gt;N&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EkjU3QVDfiA8pV-95J5n-28" target="LikposSiYaWZYpo1-LhX-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EkjU3QVDfiA8pV-95J5n-31" value="&lt;b&gt;Y&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EkjU3QVDfiA8pV-95J5n-28" target="LikposSiYaWZYpo1-LhX-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="2047" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EkjU3QVDfiA8pV-95J5n-28" value="特力惠&lt;br&gt;验证" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="1964" width="70" height="67" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
